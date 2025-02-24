@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/common.sh"
+
+echo "📝 Validating commit message..."
+npx --no commitlint --edit "$1"   # Requires commitlint setup
