@@ -1,12 +1,12 @@
-import "expo-localization";
-import i18n, { InitOptions, Module } from "i18next";
-import { initReactI18next } from "react-i18next";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { MMKV } from "react-native-mmkv";
+import 'expo-localization';
+import i18n, { InitOptions, Module } from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { MMKV } from 'react-native-mmkv';
 
 // Import translations
-import enTranslations from "@/locales/en.json";
-import esTranslations from "@/locales/es.json";
+import enTranslations from '@/locales/en.json';
+import esTranslations from '@/locales/es.json';
 
 type Resources = {
   en: { translation: typeof enTranslations };
@@ -19,7 +19,7 @@ const resources: Resources = {
 };
 export const storage = new MMKV();
 interface LanguageDetectorType extends Module {
-  type: "languageDetector";
+  type: 'languageDetector';
   async: boolean;
   detect: (callback: (lang: string) => void) => Promise<void>;
   init: () => void;
@@ -27,13 +27,13 @@ interface LanguageDetectorType extends Module {
 }
 
 const languageDetector: LanguageDetectorType = {
-  type: "languageDetector",
+  type: 'languageDetector',
   async: true,
-  detect: async (callback) => {
+  detect: async callback => {
     try {
-      callback(storage.getString("user-language") ?? "en");
+      callback(storage.getString('user-language') ?? 'en');
     } catch {
-      callback("en");
+      callback('en');
     }
   },
   init: () => {},
@@ -42,16 +42,16 @@ const languageDetector: LanguageDetectorType = {
 
 const initOptions: InitOptions = {
   resources,
-  fallbackLng: "en",
+  fallbackLng: 'en',
   interpolation: {
     escapeValue: false,
   },
-  compatibilityJSON: "v4",
+  compatibilityJSON: 'v4',
 };
 
 i18n.use(languageDetector).use(initReactI18next).init(initOptions);
 
-declare module "i18next" {
+declare module 'i18next' {
   interface CustomTypeOptions {
     resources: Resources;
   }

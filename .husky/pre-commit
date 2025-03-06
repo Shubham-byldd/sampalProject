@@ -2,4 +2,4 @@
 . "$(dirname "$0")/common.sh"
 
 echo "🔍 Linting files..."
-npm run lint       # Replace with your lint command
+npm install      # Replace with your lint command

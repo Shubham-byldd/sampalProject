@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "routingApp",
-    "slug": "routingApp",
+    "slug": "routingapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/react-logo.png",
@@ -10,7 +10,16 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.shubhambyldd.routingApp"
+      "bundleIdentifier": "com.shubhambyldd.routingApp",
+      "infoPlist": {
+        "CFBundleURLTypes": [
+          {
+            "CFBundleURLSchemes": [
+              "com.googleusercontent.apps.848560664299-fiq8eblagj6vq3kedclhkpkjvs48uu73"
+            ]
+          }
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -32,13 +41,23 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#ffffff",
+          "iosUrlScheme": "com.googleusercontent.apps.848560664299-fiq8eblagj6vq3kedclhkpkjvs48uu73"
         }
       ],
       "@react-native-google-signin/google-signin"
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "db44fa34-72dd-4330-8346-3a2f3b5d4a45"
+      }
+    },
+    "owner": "shubhambyldd"
   }
 }

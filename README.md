@@ -48,3 +48,38 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+# 🐶 Husky Git Hooks Setup
+
+This project uses **Husky** to automate Git workflows and maintain code quality through pre-commit, commit-msg, and post-merge hooks.
+
+---
+
+## 📁 Git Hooks Implemented
+
+### 1️⃣ `commit-msg` — ✅ Commit Message Linter
+
+**📝 What it does:**
+
+- Validates commit messages using **Commitlint**.
+- Enforces conventional commit standards.
+- Blocks invalid commit messages.
+
+**⚙️ How it works:**  
+Runs during the commit process and checks the commit message format.
+
+```bash
+npx commitlint --edit "$1"
+
+```
+
+## 2️⃣ common.sh — ⚡ Utility Functions
+
+**📝 What it does:**
+
+- Provides shared utility functions for multiple Husky hooks.
+- Ensures cross-platform compatibility, especially for Windows Git Bash.
+  **⚙️ How it works:**
+
+- Defines a command_exists function to check if a command exists before execution.
+- Implements a workaround for Windows Git Bash using winpty for terminal interactions.
